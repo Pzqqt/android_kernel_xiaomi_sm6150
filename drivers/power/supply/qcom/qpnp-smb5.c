@@ -235,7 +235,7 @@ struct smb5 {
 
 static struct smb_charger *__smbchg;
 
-static int __debug_mask = PR_MISC | PR_PARALLEL | PR_OTG | PR_WLS | PR_OEM;
+static int __debug_mask = PR_PARALLEL | PR_OTG | PR_WLS | PR_OEM;
 module_param_named(
 	debug_mask, __debug_mask, int, 0600
 );
@@ -1658,7 +1658,7 @@ static int smb5_usb_main_set_prop(struct power_supply *psy,
 						POWER_SUPPLY_PROP_CP_ILIM, &pval);
 			if (rc >= 0) {
 				offset_ua = (pval.intval * 20) / 100;
-				pr_err("FCC: ILIM = %d offset=%d\n", pval.intval, offset_ua);
+				pr_debug("FCC: ILIM = %d offset=%d\n", pval.intval, offset_ua);
 			}
 		}
 #else

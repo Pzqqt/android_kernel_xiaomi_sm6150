@@ -45,6 +45,7 @@ if [ -f $ZIMG ]; then
 	cp -f ./out/arch/arm64/boot/Image.gz $OUTPUT_DIR/Image.gz
 	cp -f ./out/arch/arm64/boot/dts/xiaomi/xiaomi-sdmmagpie.dtb $OUTPUT_DIR/dtb
 	cp -f ./out/arch/arm64/boot/dtbo.img $OUTPUT_DIR/dtbo.img
+	which avbtool &>/dev/null && python2 `which avbtool` add_hash_footer --partition_name dtbo --partition_size $((8 * 1024 * 1024)) --image $OUTPUT_DIR/dtbo.img
 	echo -e "$gre << Build completed in $(($Diff / 60)) minutes and $(($Diff % 60)) seconds >> \n $white"
 else
 	echo -e "$red << Failed to compile Image.gz-dtb, fix the errors first >>$white"

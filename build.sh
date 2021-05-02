@@ -23,7 +23,7 @@ export KBUILD_BUILD_USER="pzqqt"
 ccache_=`which ccache`
 
 make mrproper O=out || exit 1
-make vendor/lineage_phoenix_defconfig O=out || exit 1
+make vendor/phoenix_defconfig O=out || exit 1
 
 Start=$(date +"%s")
 

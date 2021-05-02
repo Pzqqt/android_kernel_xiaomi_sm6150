@@ -15,7 +15,6 @@ export ARCH=arm64
 export SUBARCH=arm64
 export HEADER_ARCH=arm64
 export CLANG_PATH=/home/pzqqt/build_toolchain/clang-r416183b-12.0.5
-export KBUILD_COMPILER_STRING=$($CLANG_PATH/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 
 export KBUILD_BUILD_HOST="manjaro"
 export KBUILD_BUILD_USER="pzqqt"

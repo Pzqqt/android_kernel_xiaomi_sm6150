@@ -101,7 +101,8 @@ static int devfreq_gpubw_get_target(struct devfreq *df,
 			(unsigned int) priv->bus.total_time;
 	norm_cycles = (unsigned int)(priv->bus.ram_time + priv->bus.ram_wait) /
 			(unsigned int) priv->bus.total_time;
-	wait_active_percent = (100 * (unsigned int)priv->bus.ram_wait) /
+	wait_active_percent = (priv->bus.ram_time == 0) ? 0 :
+			(100 * (unsigned int)priv->bus.ram_wait) /
 			(unsigned int) priv->bus.ram_time;
 	gpu_percent = (100 * (unsigned int)priv->bus.gpu_time) /
 			(unsigned int) priv->bus.total_time;

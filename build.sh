@@ -16,7 +16,7 @@ export SUBARCH=arm64
 export HEADER_ARCH=arm64
 export CLANG_PATH=/home/pzqqt/build_toolchain/clang-r416183b-12.0.5
 
-export KBUILD_BUILD_HOST="manjaro"
+export KBUILD_BUILD_HOST="wsl2"
 export KBUILD_BUILD_USER="pzqqt"
 
 ccache_=`which ccache`
@@ -28,7 +28,7 @@ Start=$(date +"%s")
 
 $mkdtbs && make_flag="dtbs" || make_flag=""
 
-make -j6 \
+make -j$(nproc --all) \
 	O=out \
 	CC="${ccache_} ${CLANG_PATH}/bin/clang" \
 	CLANG_TRIPLE=aarch64-linux-gnu- \

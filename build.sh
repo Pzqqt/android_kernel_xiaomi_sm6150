@@ -26,8 +26,6 @@ make vendor/phoenix_defconfig O=out || exit 1
 
 Start=$(date +"%s")
 
-$mkdtbs && make_flag="dtbs" || make_flag=""
-
 make -j$(nproc --all) \
 	O=out \
 	CC="${ccache_} ${CLANG_PATH}/bin/clang" \

@@ -19,6 +19,7 @@
 #include <linux/fs_stack.h>
 
 #include <linux/moduleparam.h>
+#include <linux/sched/signal.h>
 
 int __read_mostly sct_mode = 2;
 module_param(sct_mode, int, 0644);

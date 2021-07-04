@@ -279,10 +279,10 @@ static int msm_drm_notifier_cb(struct notifier_block *nb,
 
  	if (((blank == MSM_DRM_BLANK_POWERDOWN)
 		&& (event == MSM_DRM_EARLY_EVENT_BLANK))
-		|| (blank == MSM_DRM_BLANK_NORMAL))
+		|| (blank == MSM_DRM_BLANK_LP))
 		mdata->display_on = false;
 
-	if ((blank == MSM_DRM_BLANK_UNBLANK_CUST)
+	if ((blank == MSM_DRM_BLANK_UNBLANK)
 		&& (event == MSM_DRM_EARLY_EVENT_BLANK))
 		mdata->display_on = true;
 
